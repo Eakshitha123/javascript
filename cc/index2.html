@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="style2.css"/>
+</head>
+<body>
+    <div class="container">
+        <p>Generate </p><br/>
+        <p>Random Password</p>
+      <div class="display">
+        <input id="password" type="text" placeholder="password">
+        <img src="copy.png" alt="copy icon"/>
+      </div>
+
+
+        <button onclick="gp()"><img src="generate.png"/>Generate Password</button>
+        
+    </div>
+
+    <script>
+
+    const passwordbox = document.getElementById("password");
+
+    const length = 8;
+
+    function gp()
+    {
+        let password = "";
+
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        const lowercase = "abcdefghijklmnopqrstuvwxyz"
+
+        const num = "0123456789";
+
+        const char = "!@#$%^&*()_+=~\<>|[]{}";
+
+        const allchar = uppercase + lowercase + num + char;
+
+
+        password+= uppercase[Math.floor(Math.random() * uppercase.length)];
+        password+= lowercase[Math.floor(Math.random() * lowercase.length)];
+        password+= num[Math.floor(Math.random() * num.length)];
+        password+= char[Math.floor(Math.random() * char.length)];
+
+        while(password.length < length)
+    {
+        password+=  allchar[Math.floor(Math.random * allchar.length)];
+    }
+
+    passwordbox.value = password;
+       
+    }
+
+    </script>
+</body>
+</html>
